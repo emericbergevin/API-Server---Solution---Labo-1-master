@@ -213,13 +213,11 @@ class Repository {
                     for(let x = 0; x<filteredAndSortedObjects.length-1;++x){
                         let obj1 = filteredAndSortedObjects[x];
                         let obj2 = filteredAndSortedObjects[x+1];
-
                         if(sortkey.asc){
-                            if(this.innerCompare(obj1[sortkey.key],obj2[sortkey.key])>0){
+                            if(this.innerCompare(obj1[sortkey.key],obj2[sortkey.key])>0)
                                 filteredAndSortedObjects[x] = obj2;
                                 filteredAndSortedObjects[x+1] = obj1;
                                 ++nb;
-                            }
                         }
                         else{
                             if(this.innerCompare(obj1[sortkey.key],obj2[sortkey.key])<0){
@@ -228,7 +226,6 @@ class Repository {
                                 ++nb;
                             }
                         }
-
                     }
                     if(nb == 0){
                         fin = true;
@@ -236,7 +233,6 @@ class Repository {
                 }
 
             }
-            
             return filteredAndSortedObjects;
         }
         return objectsList;
