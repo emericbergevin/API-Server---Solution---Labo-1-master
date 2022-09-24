@@ -69,7 +69,6 @@ class Repository {
         } while (fieldIndex < max);
         return 0;
     }
-
     setBindExtraDataMethod(bindExtraDataMethod) {
         this.bindExtraDataMethod = bindExtraDataMethod;
     }
@@ -207,8 +206,7 @@ class Repository {
             for(let sortkey of sortKeys)
             {
                 let fin = false
-                while(!fin)
-                {
+                do {
                     let nb = 0;
                     for(let x = 0; x<filteredAndSortedObjects.length-1;++x){
                         let obj1 = filteredAndSortedObjects[x];
@@ -220,18 +218,15 @@ class Repository {
                                 ++nb;
                         }
                         else{
-                            if(this.innerCompare(obj1[sortkey.key],obj2[sortkey.key])<0){
+                            if(this.innerCompare(obj1[sortkey.key],obj2[sortkey.key])<0)
                                 filteredAndSortedObjects[x] = obj2;
                                 filteredAndSortedObjects[x+1] = obj1;
                                 ++nb;
-                            }
                         }
                     }
-                    if(nb == 0){
+                    if(nb == 0)
                         fin = true;
-                    }
-                }
-
+                }while(!fin)
             }
             return filteredAndSortedObjects;
         }
